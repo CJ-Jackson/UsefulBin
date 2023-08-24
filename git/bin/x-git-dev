@@ -5,4 +5,4 @@ checkoutDev () {
     done
 }
 
-checkoutDev "dev" "devel" "development"
+checkoutDev "dev" "develop" "devel" "development"
