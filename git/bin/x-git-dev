@@ -1,8 +1,1 @@
-#!/bin/dash
-checkoutDev () {
-    for name in "$@"; do
-        git rev-parse --verify $name >/dev/null 2>/dev/null && git checkout $name && exit
-    done
-}
-
-checkoutDev "dev" "develop" "devel" "development"
+../scripts/gitCheckout

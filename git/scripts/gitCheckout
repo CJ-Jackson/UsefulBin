@@ -1,0 +1,15 @@
+#!/bin/dash
+checkout () {
+    for name in "$@"; do
+        git rev-parse --verify $name >/dev/null 2>/dev/null && git checkout $name && exit
+    done
+}
+
+name=$(basename $0)
+if [ "$name" = "x-git-main" ]
+then
+    checkout "main" "master" "mainline" "default"
+elif [ "$name" = "x-git-dev" ]
+then
+    checkout "dev" "develop" "devel" "development"
+fi
