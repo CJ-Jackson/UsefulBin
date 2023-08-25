@@ -1,2 +1,2 @@
 #!/bin/dash
-git stash clear
+git stash apply $@
