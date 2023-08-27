@@ -1,0 +1,38 @@
+#!/bin/dash
+commandName=$(basename $0)
+limit=${GIT_BRANCH_STASH_LIMIT-10}
+gitDir=$(git rev-parse --git-dir)
+currentBranchName=$(git rev-parse --abbrev-ref HEAD)
+currentWd=$(pwd)
+
+cd ${gitDir}/info
+
+if [ ! -f bNameStash ]
+then
+    touch bNameStash
+fi
+
+if [ "$commandName" = "x-git-b-stash" ]
+then
+    head=$(expr $limit - 1) && \
+        head -n $head < bNameStash > bNameStash.tmp && \
+        echo $currentBranchName > bNameStash && \
+        cat bNameStash.tmp >> bNameStash && \
+        rm bNameStash.tmp && \
+        echo "Branch name '$currentBranchName' has been stashed" && \
+        exit
+elif [ "$commandName" = "x-git-b-stash-s" ]
+then
+    cat bNameStash && exit
+elif [ "$commandName" = "x-git-b-stash-a" ]
+then
+    pos=${1-1}
+    bName=$(sed -n "${pos}p" bNameStash) && \
+        cd $currentWd && \
+        git rev-parse --verify $bName >/dev/null 2>/dev/null && \
+        git checkout $bName && \
+        exit
+elif [ "$commandName" = "x-git-b-stash-c" ]
+then
+    rm bNameStash && exit
+fi
