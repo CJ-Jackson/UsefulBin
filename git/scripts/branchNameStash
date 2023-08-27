@@ -14,11 +14,17 @@ fi
 
 if [ "$commandName" = "x-git-b-stash" ]
 then
+    tmpPath="bNameStash.tmp"
+    if [ -n ${XDG_RUNTIME_DIR+set} ]
+    then
+        tmpPath="${XDG_RUNTIME_DIR}/bNameStash_$(echo ${gitDir} | md5sum | awk '{print $1}')_$(date +%s).tmp"
+    fi
+
     head=$(expr $limit - 1) && \
-        head -n $head < bNameStash > bNameStash.tmp && \
+        head -n $head < bNameStash > $tmpPath && \
         echo $currentBranchName > bNameStash && \
-        cat bNameStash.tmp >> bNameStash && \
-        rm bNameStash.tmp && \
+        cat $tmpPath >> bNameStash && \
+        rm $tmpPath && \
         echo "Branch name '$currentBranchName' has been stashed" && \
         exit
 elif [ "$commandName" = "x-git-b-stash-s" ]
