@@ -3,7 +3,7 @@
 | Script            | Command or Description                                                            |
 | :---------------- | :-------------------------------------------------------------------------------- |
 | x-git-add         | `git add $@` or `git add -A` (If param is empty)                                  |
-| x-git-b-stash     | Add branch name to top of file `.git/info/bNameStash`                             |
+| x-git-b-stash     | Add currnet branch name to top of file `.git/info/bNameStash`                     |
 | x-git-b-stash-a   | Apply branch name from top of file `.git/info/bNameStash` or by pos param `$1`    |
 | x-git-b-stash-c   | Clear branch name stash by removing `.git/info/bNameStash`                        |
 | x-git-b-stash-s   | `cat .git/info/bNameStash`                                                        |
