@@ -15,7 +15,7 @@ fi
 if [ "$commandName" = "x-git-b-stash" ]
 then
     tmpPath="bNameStash.tmp"
-    if [ -n "${XDG_RUNTIME_DIR-${TMPDIR+set}}" ]
+    if [ -n "${XDG_RUNTIME_DIR+set}${TMPDIR+set}" ]
     then
         tmpPath=${XDG_RUNTIME_DIR-${TMPDIR}}
         tmpToken=$(dd if=/dev/urandom count=1 bs=128 2> /dev/null | shasum -a 256 | awk '{print $1}')
