@@ -10,7 +10,7 @@ in $PATH rather than too much alias.
 
 # Note
 
-To use the script you need to have dash shell installed, alternativly you can just symlink dash
+To use the script you need to have dash shell installed, alternatively you can just symlink dash
 to sh.
 
 ```sh
@@ -24,7 +24,7 @@ My script are posix compliant it should work with most shells.
 I use it in conjuntion with [Direnv](https://direnv.net/), you should check it out,
 it really useful. Can be used to version SDK (Node, deno and go).
 
-### Exmaple
+### Example
 
 `direnv edit .`
 ```
