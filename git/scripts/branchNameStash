@@ -17,10 +17,10 @@ then
     tmpPath="bNameStash.tmp"
     if [ -n "${XDG_RUNTIME_DIR+set}" ]
     then
-        tmpPath="${XDG_RUNTIME_DIR}/bNameStash_$(echo ${gitDir} | md5sum | awk '{print $1}')_$(date +%s).tmp"
-    if [ -n "${TMPDIR+set}" ]
+        tmpPath="${XDG_RUNTIME_DIR}/bNameStash_$(echo ${gitDir} | shasum -a 256 | awk '{print $1}')_$(date +%s).tmp"
+    elif [ -n "${TMPDIR+set}" ]
     then
-        tmpPath="${TMPDIR}/bNameStash_$(echo ${gitDir} | md5sum | awk '{print $1}')_$(date +%s).tmp"
+        tmpPath="${TMPDIR}/bNameStash_$(echo ${gitDir} | shasum -a 256 | awk '{print $1}')_$(date +%s).tmp"
     fi
 
     head=$(expr $limit - 1) && \
