@@ -18,7 +18,7 @@ then
     if [ -n "${XDG_RUNTIME_DIR-${TMPDIR+set}}" ]
     then
         tmpPath=${XDG_RUNTIME_DIR-${TMPDIR}}
-        tmpToken=$(dd if=/dev/urandom  count=1 bs=128 2> /dev/null | shasum -a 256 | awk '{print $1}')
+        tmpToken=$(dd if=/dev/urandom count=1 bs=128 2> /dev/null | shasum -a 256 | awk '{print $1}')
         tmpPath="${tmpPath}/bNameStash_${tmpToken}.tmp"
     fi
 
