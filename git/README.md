@@ -7,8 +7,8 @@
 | x-git-commit      | `git commit $@`                                                       |
 | x-get-dev         | `git checkout {dev branch}`                                           |
 | x-git-main        | `git checkout {main branch}`                                          |
-| x-git-pull        | `git pull origin {current branch}`                           |
-| x-git-push        | `git push origin {current branch}`                           |
+| x-git-pull        | `git pull origin {current branch}`                                    |
+| x-git-push        | `git push origin {current branch}`                                    |
 | x-git-reset       | `git reset --hard HEAD`                                               |
 | x-git-stash       | `git stash $@`                                                        |
 | x-git-stash-a     | `git stash apply $@`                                                  |
