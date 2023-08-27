@@ -1,5 +1,5 @@
 #!/bin/dash
-doMerge () {
+fnMerge () {
     for name in "$@"; do
         git rev-parse --verify $name >/dev/null 2>/dev/null && git merge $name && exit
     done
@@ -8,8 +8,8 @@ doMerge () {
 name=$(basename $0)
 if [ "$name" = "x-git-mg-main" ]
 then
-    doMerge "main" "master" "mainline" "default"
+    fnMerge "main" "master" "mainline" "default"
 elif [ "$name" = "x-git-mg-dev" ]
 then
-    doMerge "dev" "develop" "devel" "development"
+    fnMerge "dev" "develop" "devel" "development"
 fi
