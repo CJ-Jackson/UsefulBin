@@ -18,7 +18,6 @@ then
     if [ -n "${XDG_RUNTIME_DIR-${TMPDIR+set}}" ]
     then
         tmpPath="${XDG_RUNTIME_DIR-${TMPDIR}}/bNameStash_$(echo ${gitDir} | shasum -a 256 | awk '{print $1}')_$(date +%s).tmp"
-        echo $tmpPath
     fi
 
     head=$(expr $limit - 1) && \
