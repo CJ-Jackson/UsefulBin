@@ -31,7 +31,12 @@ then
         exit
 elif [ "$commandName" = "x-git-b-stash-s" ]
 then
-    cat bNameStash && exit
+    if command -v "bat" > /dev/null
+    then
+        bat --paging never bNameStash && exit
+    else
+        cat bNameStash && exit
+    fi
 elif [ "$commandName" = "x-git-b-stash-a" ]
 then
     pos=${1-1}
