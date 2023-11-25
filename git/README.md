@@ -19,4 +19,7 @@
 | x-git-reset       | `git reset --hard HEAD`                                                           |
 | x-git-stash       | `git stash $@`                                                                    |
 | x-git-stash-a     | `git stash apply $@`                                                              |
+| x-git-stash-a     | `git stash apply $@`                                                              |
 | x-git-stash-c     | `git stash clear`                                                                 |
+| x-git-sub-pull    | `git submodule update --init --recursive`                                         |
+| x-git-sub-update  | `git submodule update --remote --merge`                                           |
