@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/usr/bin/env dash
 commandName=$(basename $0)
 limit=${GIT_BRANCH_STASH_LIMIT-10}
 gitDir=$(git rev-parse --git-dir)

@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/usr/bin/env dash
 fnCheckout () {
     for name in "$@"; do
         git rev-parse --verify $name >/dev/null 2>/dev/null && git checkout $name && exit
