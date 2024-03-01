@@ -20,6 +20,5 @@
 | gitxStash      | `git stash $@`                                                                    |
 | gitxStashA     | `git stash apply $@`                                                              |
 | gitxStashC     | `git stash clear`                                                                 |
-| gitxStashS     | `git stash clear`                                                                 |
 | gitxSubPull    | `git submodule update --init --recursive`                                         |
 | gitxSubUpdate  | `git submodule update --remote --merge`                                           |
