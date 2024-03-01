@@ -12,7 +12,7 @@ then
     touch bNameStash
 fi
 
-if [ "$commandName" = "x-git-b-stash" ]
+if [ "$commandName" = "gitxBStash" ]
 then
     tmpPath="bNameStash.tmp"
     if [ -n "${XDG_RUNTIME_DIR+set}${TMPDIR+set}" ]
@@ -29,7 +29,7 @@ then
         rm $tmpPath && \
         echo "Branch name '$currentBranchName' has been stashed" && \
         exit
-elif [ "$commandName" = "x-git-b-stash-s" ]
+elif [ "$commandName" = "gitxBStashS" ]
 then
     if command -v "bat" > /dev/null
     then
@@ -37,7 +37,7 @@ then
     else
         cat bNameStash && exit
     fi
-elif [ "$commandName" = "x-git-b-stash-a" ]
+elif [ "$commandName" = "gitxBStashA" ]
 then
     pos=${1-1}
     bName=$(sed -n "${pos}p" bNameStash) && \
@@ -45,7 +45,7 @@ then
         git rev-parse --verify $bName >/dev/null 2>/dev/null && \
         git checkout $bName && \
         exit
-elif [ "$commandName" = "x-git-b-stash-c" ]
+elif [ "$commandName" = "gitxBStashC" ]
 then
     rm bNameStash && exit
 fi

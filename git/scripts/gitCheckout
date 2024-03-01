@@ -6,10 +6,10 @@ fnCheckout () {
 }
 
 name=$(basename $0)
-if [ "$name" = "x-git-main" ]
+if [ "$name" = "gitxMain" ]
 then
     fnCheckout "main" "master" "mainline" "default"
-elif [ "$name" = "x-git-dev" ]
+elif [ "$name" = "gitxDev" ]
 then
     fnCheckout "dev" "develop" "devel" "development"
 fi

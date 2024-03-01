@@ -6,10 +6,10 @@ fnMerge () {
 }
 
 name=$(basename $0)
-if [ "$name" = "x-git-mg-main" ]
+if [ "$name" = "gitxMgMain" ]
 then
     fnMerge "main" "master" "mainline" "default"
-elif [ "$name" = "x-git-mg-dev" ]
+elif [ "$name" = "gitxMgDev" ]
 then
     fnMerge "dev" "develop" "devel" "development"
 fi

@@ -1,25 +1,25 @@
 # Git
 
-| Script            | Command or Description                                                            |
-| :---------------- | :-------------------------------------------------------------------------------- |
-| x-git-add         | `git add $@` or `git add -A` (If param is empty)                                  |
-| x-git-b-stash     | Add currnet branch name to top of file `.git/info/bNameStash`                     |
-| x-git-b-stash-a   | Apply branch name from top of file `.git/info/bNameStash` or by pos param `$1`    |
-| x-git-b-stash-c   | Clear branch name stash by removing `.git/info/bNameStash`                        |
-| x-git-b-stash-s   | `cat .git/info/bNameStash`                                                        |
-| x-git-co          | `git checkout $@`                                                                 |
-| x-git-commit      | `git commit $@`                                                                   |
-| x-get-dev         | `git checkout {dev branch}`                                                       |
-| x-git-main        | `git checkout {main branch}`                                                      |
-| x-git-mg          | `git merge $@`                                                                    |
-| x-get-mg-dev      | `git merge {dev branch}`                                                          |
-| x-git-mg-main     | `git merge {main branch}`                                                         |
-| x-git-pull        | `git pull origin {current branch}`                                                |
-| x-git-push        | `git push origin {current branch}`                                                |
-| x-git-reset       | `git reset --hard HEAD`                                                           |
-| x-git-stash       | `git stash $@`                                                                    |
-| x-git-stash-a     | `git stash apply $@`                                                              |
-| x-git-stash-a     | `git stash apply $@`                                                              |
-| x-git-stash-c     | `git stash clear`                                                                 |
-| x-git-sub-pull    | `git submodule update --init --recursive`                                         |
-| x-git-sub-update  | `git submodule update --remote --merge`                                           |
+| Script         | Command or Description                                                            |
+| :------------- | :-------------------------------------------------------------------------------- |
+| gitxAdd        | `git add $@` or `git add -A` (If param is empty)                                  |
+| gitxBStash     | Add currnet branch name to top of file `.git/info/bNameStash`                     |
+| gitxBStashA    | Apply branch name from top of file `.git/info/bNameStash` or by pos param `$1`    |
+| gitxBStashC    | Clear branch name stash by removing `.git/info/bNameStash`                        |
+| gitxBStashS    | `cat .git/info/bNameStash`                                                        |
+| gitxCo         | `git checkout $@`                                                                 |
+| gitxCommit     | `git commit $@`                                                                   |
+| gitxDev        | `git checkout {dev branch}`                                                       |
+| gitxMain       | `git checkout {main branch}`                                                      |
+| gitxMg         | `git merge $@`                                                                    |
+| gitxMgDev      | `git merge {dev branch}`                                                          |
+| gitxMgMain     | `git merge {main branch}`                                                         |
+| gitxPull       | `git pull origin {current branch}`                                                |
+| gitxPush       | `git push origin {current branch}`                                                |
+| gitxReset      | `git reset --hard HEAD`                                                           |
+| gitxStash      | `git stash $@`                                                                    |
+| gitxStashA     | `git stash apply $@`                                                              |
+| gitxStashC     | `git stash clear`                                                                 |
+| gitxStashS     | `git stash clear`                                                                 |
+| gitxSubPull    | `git submodule update --init --recursive`                                         |
+| gitxSubUpdate  | `git submodule update --remote --merge`                                           |
