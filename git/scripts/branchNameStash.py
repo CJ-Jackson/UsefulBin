@@ -76,4 +76,5 @@ class BranchNameStash:
         }
         command[self.commandName]()
         
+
 BranchNameStash().process_command()
