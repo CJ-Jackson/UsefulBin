@@ -53,20 +53,20 @@ class BranchNameStash:
         try:
             pos = int(sys.argv[1]) - 1
         except Exception:
-            pos = 1
+            pos = 0
         branch_names = self.open_file()
         try:
             branch_name = branch_names[pos]
-            if subprocess.run(["git", "rev-parse", "--verify", branch_name]).\
-                returncode != 0:
+            if subprocess.run(["git", "rev-parse", "--verify", branch_name], capture_output=True). \
+                    returncode != 0:
                 raise Exception("Branch name does not exist")
-            exec_cmd(["git", "checkout", branch_name])
+            subprocess.run(["git", "checkout", branch_name])
         except Exception as e:
             print(e.args[0])
-    
+
     def clear_stash(self):
         self.save_file([])
-        
+
     def process_command(self):
         command: dict = {
             "gitxBStash": self.stash_branch_name,
@@ -75,6 +75,6 @@ class BranchNameStash:
             "gitxBStashC": self.clear_stash
         }
         command[self.commandName]()
-        
+
 
 BranchNameStash().process_command()
