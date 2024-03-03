@@ -76,7 +76,7 @@ class BranchNameStash:
         try:
             command[self.commandName]()
         except Exception:
-            print("Comand {0} does not exist".format(self.commandName))
+            print("Command {0} does not exist".format(self.commandName))
 
 
 BranchNameStash().process_command()
