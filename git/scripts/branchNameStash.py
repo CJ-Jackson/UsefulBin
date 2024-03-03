@@ -72,7 +72,11 @@ class BranchNameStash:
             "gitxBStashA": self.apply_stash,
             "gitxBStashC": self.clear_stash
         }
-        command[self.commandName]()
+
+        try:
+            command[self.commandName]()
+        except Exception:
+            print("Comand {0} does not exist".format(self.commandName))
 
 
 BranchNameStash().process_command()
