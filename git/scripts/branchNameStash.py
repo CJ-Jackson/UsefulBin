@@ -45,7 +45,7 @@ class BranchNameStash:
         branch_names = self.open_file()
         key: int = 1
         for value in branch_names:
-            print("{0} | {1}".format(key, value))
+            print("{0: <3} | {1}".format(key, value))
             key += 1
 
     def apply_stash(self):
