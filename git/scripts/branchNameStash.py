@@ -25,12 +25,12 @@ class BranchNameStash:
             exec_cmd(["git", "rev-parse", "--abbrev-ref", "HEAD"])
 
     def save_file(self, data: list):
-        with open("{0}/info/{1}".format(self.gitDir, saveFilename), "w") as f:
+        with open(f"{self.gitDir}/info/{saveFilename}", "w") as f:
             json.dump(data, f, ensure_ascii=False)
 
     def open_file(self) -> list:
         try:
-            with open("{0}/info/{1}".format(self.gitDir, saveFilename), "r") as f:
+            with open(f"{self.gitDir}/info/{saveFilename}", "r") as f:
                 return json.load(f)
         except Exception:
             return []
@@ -39,13 +39,14 @@ class BranchNameStash:
         branch_names = self.open_file()
         branch_names.insert(0, self.currentBranchName)
         self.save_file(branch_names[:self.limit])
-        print("Branch name '{0}' has been stashed".format(self.currentBranchName))
+        print(f"Branch name '{self.currentBranchName}' has been stashed")
 
     def show_stash(self):
         branch_names = self.open_file()
         key: int = 1
+        padding: int = len(str(len(branch_names)))
         for value in branch_names:
-            print("{0: <3} | {1}".format(key, value))
+            print(f"{key: <{padding}} | {value}")
             key += 1
 
     def apply_stash(self):
@@ -76,7 +77,7 @@ class BranchNameStash:
         try:
             command[self.commandName]()
         except Exception:
-            print("Command {0} does not exist".format(self.commandName))
+            print(f"Command {self.commandName} does not exist")
 
 
 BranchNameStash().process_command()
