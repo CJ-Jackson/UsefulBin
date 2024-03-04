@@ -46,7 +46,7 @@ class BranchNameStash:
         key: int = 1
         padding: int = len(str(len(branch_names)))
         for value in branch_names:
-            print(f" {key: <{padding}} | {value}")
+            print(f" {key: >{padding}} | {value}")
             key += 1
 
     def apply_stash(self):
