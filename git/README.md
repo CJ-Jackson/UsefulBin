@@ -2,23 +2,23 @@
 
 | Script        | Command or Description                                                         |
 |:--------------|:-------------------------------------------------------------------------------|
-| gitxAdd       | `git add $@` or `git add -A` (If param is empty)                               |
-| gitxBStash    | Add currnet branch name to top of file `.git/info/bNameStash`                  |
-| gitxBStashA   | Apply branch name from top of file `.git/info/bNameStash` or by pos param `$1` |
-| gitxBStashC   | Clear branch name stash by removing `.git/info/bNameStash`                     |
-| gitxBStashS   | `cat .git/info/bNameStash`                                                     |
-| gitxCo        | `git checkout $@`                                                              |
-| gitxCommit    | `git commit $@`                                                                |
-| gitxDev       | `git checkout {dev branch}`                                                    |
-| gitxMain      | `git checkout {main branch}`                                                   |
-| gitxMg        | `git merge $@`                                                                 |
-| gitxMgDev     | `git merge {dev branch}`                                                       |
-| gitxMgMain    | `git merge {main branch}`                                                      |
-| gitxPull      | `git pull origin {current branch}`                                             |
-| gitxPush      | `git push origin {current branch}`                                             |
-| gitxReset     | `git reset --hard HEAD`                                                        |
-| gitxStash     | `git stash $@`                                                                 |
-| gitxStashA    | `git stash apply $@`                                                           |
-| gitxStashC    | `git stash clear`                                                              |
-| gitxSubPull   | `git submodule update --init --recursive`                                      |
-| gitxSubUpdate | `git submodule update --remote --merge`                                        |
+| _gitAdd       | `git add $@` or `git add -A` (If param is empty)                               |
+| _gitBStash    | Add currnet branch name to top of file `.git/info/bNameStash`                  |
+| _gitBStashA   | Apply branch name from top of file `.git/info/bNameStash` or by pos param `$1` |
+| _gitBStashC   | Clear branch name stash by removing `.git/info/bNameStash`                     |
+| _gitBStashS   | `cat .git/info/bNameStash`                                                     |
+| _gitCo        | `git checkout $@`                                                              |
+| _gitCommit    | `git commit $@`                                                                |
+| _gitDev       | `git checkout {dev branch}`                                                    |
+| _gitMain      | `git checkout {main branch}`                                                   |
+| _gitMg        | `git merge $@`                                                                 |
+| _gitMgDev     | `git merge {dev branch}`                                                       |
+| _gitMgMain    | `git merge {main branch}`                                                      |
+| _gitPull      | `git pull origin {current branch}`                                             |
+| _gitPush      | `git push origin {current branch}`                                             |
+| _gitReset     | `git reset --hard HEAD`                                                        |
+| _gitStash     | `git stash $@`                                                                 |
+| _gitStashA    | `git stash apply $@`                                                           |
+| _gitStashC    | `git stash clear`                                                              |
+| _gitSubPull   | `git submodule update --init --recursive`                                      |
+| _gitSubUpdate | `git submodule update --remote --merge`                                        |

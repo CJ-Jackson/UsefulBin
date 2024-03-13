@@ -68,10 +68,10 @@ class BranchNameStash:
 
     def process_command(self):
         command: dict = {
-            "gitxBStash": self.stash_branch_name,
-            "gitxBStashS": self.show_stash,
-            "gitxBStashA": self.apply_stash,
-            "gitxBStashC": self.clear_stash
+            "_gitBStash": self.stash_branch_name,
+            "_gitBStashS": self.show_stash,
+            "_gitBStashA": self.apply_stash,
+            "_gitBStashC": self.clear_stash
         }
 
         try:
