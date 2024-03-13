@@ -1,2 +1,8 @@
 #!/bin/dash
-git reset --hard HEAD
+name=$1
+if [ "$name" = "s" ]
+then
+    git reset HEAD
+else
+    git reset --hard HEAD
+fi
