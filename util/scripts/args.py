@@ -4,7 +4,7 @@ import sys
 
 def process_args():
     for arg in sys.argv[1:]:
-        print(arg.split("\n").pop(0).strip())
+        print(arg.strip())
 
 
 process_args()
