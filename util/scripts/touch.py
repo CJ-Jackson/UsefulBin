@@ -17,8 +17,8 @@ def process_touch():
     if os.path.exists(file_name):
         os.chmod(file_name, 0o755)
         return
-    file_content: str
 
+    file_content: str
     try:
         file_content = commands[commmand_name]
     except KeyError:
