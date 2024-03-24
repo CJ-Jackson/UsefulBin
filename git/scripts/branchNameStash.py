@@ -32,7 +32,9 @@ class BranchNameStash:
         try:
             with open(f"{self.gitDir}/info/{saveFilename}", "r") as f:
                 return json.load(f)
-        except Exception:
+        except OSError:
+            return []
+        except json.JSONDecodeError:
             return []
 
     def stash_branch_name(self):
@@ -53,15 +55,19 @@ class BranchNameStash:
         pos: int
         try:
             pos = int(sys.argv[1]) - 1
-        except Exception:
+        except IndexError:
             pos = 0
         branch_names = self.open_file()
         try:
             branch_name = branch_names[pos]
             subprocess.run(["git", "rev-parse", "--verify", branch_name], capture_output=True).check_returncode()
             subprocess.run(["git", "checkout", branch_name])
-        except Exception:
-            print("Branch name does not exist")
+        except KeyError:
+            print(f"Branch key value '{pos+1}' does not exist", file=sys.stderr)
+            exit(1)
+        except subprocess.CalledProcessError:
+            print("Branch name does not exist", file=sys.stderr)
+            exit(1)
 
     def clear_stash(self):
         self.save_file([])
@@ -76,7 +82,7 @@ class BranchNameStash:
 
         try:
             command[self.commandName]()
-        except Exception:
+        except KeyError:
             print(f"Command {self.commandName} does not exist")
 
 
