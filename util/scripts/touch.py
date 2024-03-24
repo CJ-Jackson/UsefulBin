@@ -18,12 +18,7 @@ def process_touch():
         os.chmod(file_name, 0o755)
         return
 
-    file_content: str
-    try:
-        file_content = commands[commmand_name]
-    except KeyError:
-        file_content = ""
-        pass
+    file_content: str = commands.get(commmand_name, "")
 
     with open(file_name, "w", encoding="utf-8") as f:
         print(file_content, file=f)
