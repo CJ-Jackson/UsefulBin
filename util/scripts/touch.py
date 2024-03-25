@@ -15,7 +15,6 @@ def process_touch():
     commmand_name: str = os.path.basename(sys.argv[0])
     file_name: str = sys.argv[1]
     if os.path.exists(file_name):
-        os.chmod(file_name, 0o755)
         return
 
     file_content: str = commands.get(commmand_name, "")
