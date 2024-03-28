@@ -6,7 +6,7 @@ import sys
 import time
 import tomllib
 
-toml_template = '''
+toml_template = '''\
 jira_task_number = []
 
 [links]
