@@ -34,7 +34,7 @@ def set_domain():
         domain_name: str = sys.argv[1]
         save_file({'domain_name': domain_name})
         print(f"'{domain_name}' has been saved!")
-    except KeyError:
+    except IndexError:
         print("Must have one parameter", file=sys.stderr)
         exit(1)
 
@@ -45,7 +45,7 @@ def print_scp_path():
         file_path: str = os.path.abspath(sys.argv[1])
         config: dict = open_file()
         print(f'"{username}@{config["domain_name"]}:{file_path}"')
-    except KeyError:
+    except IndexError:
         print("Must have one parameter", file=sys.stderr)
         exit(1)
 
