@@ -13,7 +13,14 @@ cd $(dirname $(realpath -s $0))''',
 
 def process_touch():
     commmand_name: str = os.path.basename(sys.argv[0])
-    file_name: str = sys.argv[1]
+    
+    file_name: str
+    try:
+        file_name = sys.argv[1]
+    except IndexError:
+        print("Must have one argument", file=sys.stderr)
+        exit(1)
+
     if os.path.exists(file_name):
         return
 
