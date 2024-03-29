@@ -76,29 +76,71 @@ def open_pr_config() -> dict:
         exit(1)
 
 
+class MaxLenght:
+    __max_lenght: dict[str, int]
+
+    def __init__(self):
+        self.__max_lenght = {}
+
+    def set(self, name: str, value: str):
+        lenght = len(value)
+        if lenght > self.__max_lenght.get(name, 5):
+            self.__max_lenght[name] = lenght
+
+    def get(self, name) -> int:
+        return self.__max_lenght.get(name, 5)
+
+
 def create_pr():
-    pr = open_pr_config()
-    gl = open_config_file()
-    body: str = "| **Q** | **A** |\n|---|---|\n"
+    pr_config = open_pr_config()
+    gl_config = open_config_file()
+    max_lenght = MaxLenght()
+    header_list: list[dict] = [{"key": "**Q**", "value": "**A**"}]
+    body_list: list[dict[str, str]] = []
+    body: str = ""
     
     first: str = "JIRA"
-    for task in pr['jira_task_number']:
-        body += f"| {first} | [{task}]({gl['jira_prefix']}/{task}) |\n"
+    max_lenght.set("key", first)
+    for task in pr_config['jira_task_number']:
+        value_ = f"[{task}]({gl_config['jira_prefix']}/{task})"
+        max_lenght.set("value", value_)
+        body_list.append({"key": first, "value": value_})
         first = ""
-    
-    for key, links in pr['links'].items():
+
+    for key, links in pr_config['links'].items():
         key = key.replace("_", " ")
         first: str = key
+        max_lenght.set("key", first)
         for link in links:
-            body += f"| {first} | {link} |\n"
+            max_lenght.set("value", link)
+            body_list.append({"key": first, "value": link})
             first = ""
-            
-    for key, value in pr['checks'].items():
+
+    for key, value in pr_config['checks'].items():
         key = key.replace("_", " ")
+        max_lenght.set("key", key)
         check: str = ":heavy_multiplication_x:"
         if value:
             check = ":heavy_check_mark:"
-        body += f"| {key} | {check} |\n"
+        max_lenght.set("value", check)
+        body_list.append({"key": key, "value": check})
+
+    key_lenght = max_lenght.get("key")
+    value_lenght = max_lenght.get("value")
+    header_list.append({"key": "-"*(key_lenght+2), "value": "-"*(value_lenght+2), "line": True})
+
+    for header in header_list:
+        key_ = header["key"]
+        value_ = header["value"]
+        if not header.get("line", False):
+            body += f"| {key_: <{key_lenght}} | {value_: <{value_lenght}} |\n"
+        else:
+            body += f"|{key_}|{value_}|\n"
+
+    for body_item in body_list:
+        key_ = body_item["key"]
+        value_ = body_item["value"]
+        body += f"| {key_: <{key_lenght}} | {value_: <{value_lenght}} |\n"
         
     body += '''
 # Description
