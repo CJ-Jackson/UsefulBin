@@ -7,7 +7,7 @@ import time
 import tomllib
 
 toml_template = '''\
-jira_task_number = []
+jira_task_number = ['']
 
 [links]
 Linked_PR = []
@@ -127,7 +127,11 @@ def create_pr():
 
     key_lenght = max_lenght.get("key")
     value_lenght = max_lenght.get("value")
-    header_list.append({"key": "-"*(key_lenght+2), "value": "-"*(value_lenght+2), "line": True})
+    header_list.append({
+        "key": ":" + ("-"*(key_lenght+1)),
+        "value": ":" + ("-"*(value_lenght+1)),
+        "line": True
+    })
 
     for header in header_list:
         key_ = header["key"]
