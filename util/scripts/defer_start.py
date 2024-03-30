@@ -5,19 +5,19 @@ import subprocess
 import sys
 
 
-def process_filename() -> str:
+def process_defer_start_filename() -> str:
     tmp_dir: str = os.environ.get("XDG_RUNTIME_DIR", os.environ.get("TMPDIR", "")).rstrip("/")
     return f"{tmp_dir}/defer.json"
 
 
-def save_file(command: list):
-    with open(process_filename(), "w", encoding="utf-8") as f:
+def save_defer_start_file(command: list):
+    with open(process_defer_start_filename(), "w", encoding="utf-8") as f:
         json.dump(command, f)
 
 
-def open_file() -> list:
+def open_defer_start_file() -> list:
     try:
-        with open(process_filename(), "r", encoding="utf-8") as f:
+        with open(process_defer_start_filename(), "r", encoding="utf-8") as f:
             return json.load(f)
     except OSError:
         return []
@@ -26,19 +26,19 @@ def open_file() -> list:
 
 
 def process_defer():
-    commands = open_file()
+    commands = open_defer_start_file()
     commands.append({
         "working_dir": os.getcwd(),
         "args": sys.argv[1:]
     })
-    save_file(commands)
+    save_defer_start_file(commands)
 
 
 def process_start():
-    commands = open_file()
+    commands = open_defer_start_file()
     for command in commands:
         subprocess.run(command['args'], cwd=command['working_dir'])
-    save_file([])
+    save_defer_start_file([])
     
     
 def process():

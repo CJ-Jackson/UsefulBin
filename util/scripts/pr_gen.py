@@ -20,47 +20,44 @@ Live_Follow-up = false
 Parameters = false'''
 
 
-def process_config_path() -> str:
+def process_pr_gen_config_path() -> str:
     return f"{pathlib.Path.home()}/.config/useful_bin_util/pr_gen.json"
 
 
-def save_config_file(data: dict):
-    config_path: str = process_config_path()
+def save_pr_gen_config_file(data: dict):
+    config_path: str = process_pr_gen_config_path()
     os.makedirs(os.path.dirname(config_path), exist_ok=True)
     with open(config_path, "w", encoding="utf-8") as f:
         json.dump(data, f)
 
 
-def open_config_file() -> dict:
-    config_path: str = process_config_path()
+def open_pr_gen_config_file() -> dict:
+    config_path: str = process_pr_gen_config_path()
     try:
         with open(config_path, "r", encoding="utf-8") as f:
             return json.load(f)
-    except OSError:
-        print(f"Unable to open '{config_path}'", file=sys.stderr)
-        exit(1)
-    except json.JSONDecodeError:
-        print(f"Unable to decode '{config_path}'", file=sys.stderr)
+    except (OSError, json.JSONDecodeError):
+        print(f"Unabled to open '{config_path}'", file=sys.stderr)
         exit(1)
 
 
 def set_jira_prefix():
     try:
         jira_prefix: str = sys.argv[1]
-        save_config_file({"jira_prefix": jira_prefix})
+        save_pr_gen_config_file({"jira_prefix": jira_prefix})
         print(f"Save jira prefix '{jira_prefix}'")
     except IndexError:
         print("Must have one parameter", file=sys.stderr)
         exit(1)
         
 
-def process_tmp_path() -> str:
+def process_pr_gen_tmp_path() -> str:
     tmp_dir: str = os.environ.get("XDG_RUNTIME_DIR", os.environ.get("TMPDIR", "")).rstrip("/")
     return f"{tmp_dir}/pr_{time.time()}.toml"
 
 
 def create_template():
-    tmp_path = process_tmp_path()
+    tmp_path = process_pr_gen_tmp_path()
     with open(tmp_path, "w", encoding="utf-8") as f:
         print(toml_template, file=f)
     print(tmp_path)
@@ -93,7 +90,7 @@ class MaxLenght:
 
 def create_pr():
     pr_config = open_pr_config()
-    gl_config = open_config_file()
+    gl_config = open_pr_gen_config_file()
     max_lenght = MaxLenght()
     header_list: list[dict] = [{"key": "**Q**", "value": "**A**"}]
     body_list: list[dict[str, str]] = []
