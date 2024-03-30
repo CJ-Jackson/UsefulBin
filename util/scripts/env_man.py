@@ -31,6 +31,7 @@ def process_env_man():
                 all_env |= arg_config['env']
     
     if len(all_path) > 0:
+        all_path.reverse()
         all_path = ":".join(all_path)
         print(f'export PATH="{all_path}:$PATH"')
         
