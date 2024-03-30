@@ -1,0 +1,3 @@
+[git]
+path = '/home/cjjackson/UsefulBin/git'
+env = {TEST = 'TEST'}
