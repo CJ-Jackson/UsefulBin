@@ -1,3 +1,5 @@
+# Location; ~/.config/useful_bin_util/env_man.toml
+
 [git]
 path = '/home/cjjackson/UsefulBin/git'
 env = {TEST = 'TEST'}
