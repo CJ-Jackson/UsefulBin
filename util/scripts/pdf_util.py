@@ -22,10 +22,11 @@ def pdf_util_decrypt_pdf():
     if reader.is_encrypted:
         password = getpass.getpass()
         if reader.decrypt(password) == 0:
-            print("Unable to decrypt PDF, password was probably incorrect!")
+            print(f"Unable to decrypt '{filename}', password was probably incorrect!")
             exit(1)
     else:
-        exit(0)
+        print(f"'{filename}' has already been decrypted")
+        exit(1)
         
     writer = PdfWriter(clone_from=reader)
     
@@ -38,7 +39,7 @@ def pdf_util_encrypt_pdf():
     
     reader = PdfReader(filename)
     if reader.is_encrypted:
-        print(f"{filename} has already been encrypted", file=sys.stderr)
+        print(f"'{filename}' has already been encrypted", file=sys.stderr)
         exit(1)
         
     new_password: str = ""
