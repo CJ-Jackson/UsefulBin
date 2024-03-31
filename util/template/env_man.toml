@@ -1,4 +1,4 @@
-# Location; ~/.config/useful_bin_util/env_man.toml
+# Location: ~/.config/useful_bin_util/env_man.toml
 
 [git]
 path = '/home/cjjackson/UsefulBin/git'
