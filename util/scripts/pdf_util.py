@@ -10,7 +10,7 @@ def pdf_util_filename_from_args() -> str:
     try:
         return sys.argv[1]
     except IndexError:
-        print("Must have on argument 'filename'", file=sys.stderr)
+        print("Must have one argument 'filename'", file=sys.stderr)
         exit(1)
 
 
