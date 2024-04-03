@@ -30,16 +30,16 @@ def process_env_man():
                 all_path.append(path_)
             if 'env' in arg_config:
                 all_env |= arg_config['env']
-    
-    if len(all_path) > 0:
-        all_path.reverse()
-        all_path = ":".join(all_path)
-        print(f'export PATH="{all_path}:$PATH"')
-        
+
     for name, value in all_env.items():
         name = name.replace(' ', "_")
         value = value.replace('"', '\\"')
         print(f'export {name}="{value}"')
+
+    if len(all_path) > 0:
+        all_path.reverse()
+        all_path = ":".join(all_path)
+        print(f'export PATH="{all_path}:$PATH"')
 
 
 process_env_man()
