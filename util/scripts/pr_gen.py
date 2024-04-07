@@ -153,12 +153,13 @@ def create_pr():
     
 def process():
     command_name = os.path.basename(sys.argv[0])
-    if command_name == "pr_gen_set_jira_prefix":
-        set_jira_prefix()
-    elif command_name == "pr_gen_create_template":
-        create_template()
-    elif command_name == "pr_gen_create_pr":
-        create_pr()
+    match command_name:
+        case "pr_gen_set_jira_prefix":
+            set_jira_prefix()
+        case "pr_gen_create_template":
+            create_template()
+        case "pr_gen_create_pr":
+            create_pr()
         
         
 process()

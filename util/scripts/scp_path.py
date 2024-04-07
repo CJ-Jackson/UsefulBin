@@ -48,10 +48,11 @@ def print_scp_path():
 
 def process():
     command_name = os.path.basename(sys.argv[0])
-    if command_name == "scp_path_set_domain":
-        set_domain()
-    elif command_name == "scp_path":
-        print_scp_path()
+    match command_name:
+        case "scp_path_set_domain":
+            set_domain()
+        case "scp_path":
+            print_scp_path()
 
 
 process()

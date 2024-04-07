@@ -43,10 +43,11 @@ def process_start():
     
 def process():
     command_name: str = os.path.basename(sys.argv[0])
-    if command_name == "defer":
-        process_defer()
-    elif command_name == "start":
-        process_start()
+    match command_name:
+        case "defer":
+            process_defer()
+        case "start":
+            process_start()
         
         
 process()

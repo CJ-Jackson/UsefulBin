@@ -61,10 +61,11 @@ def pdf_util_encrypt_pdf():
         
 def pdf_util_process():
     command_name = os.path.basename(sys.argv[0])
-    if command_name == "pdf_util_decrypt":
-        pdf_util_decrypt_pdf()
-    elif command_name == "pdf_util_encrypt":
-        pdf_util_encrypt_pdf()
+    match command_name:
+        case "pdf_util_decrypt":
+            pdf_util_decrypt_pdf()
+        case "pdf_util_encrypt":
+            pdf_util_encrypt_pdf()
 
 
 pdf_util_process()
