@@ -19,9 +19,7 @@ def open_defer_start_file() -> list:
     try:
         with open(process_defer_start_filename(), "r", encoding="utf-8") as f:
             return json.load(f)
-    except OSError:
-        return []
-    except json.JSONDecodeError:
+    except (OSError, json.JSONDecodeError):
         return []
 
 
