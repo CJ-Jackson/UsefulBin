@@ -83,7 +83,7 @@ class BranchNameStash:
         try:
             command[self.commandName]()
         except KeyError:
-            print(f"Command {self.commandName} does not exist")
+            print(f"Command {self.commandName} does not exist", file=sys.stderr)
 
 
 BranchNameStash().process_command()
