@@ -12,25 +12,25 @@ def exec_cmd(args: list) -> str:
 
 
 class BranchNameStash:
-    commandName: str
+    command_name: str
     limit: int
-    gitDir: str
-    currentBranchName: str
+    git_dir: str
+    current_branch_name: str
 
     def __init__(self):
-        self.commandName = os.path.basename(sys.argv[0])
+        self.command_name = os.path.basename(sys.argv[0])
         self.limit = int(os.getenv("GIT_BRANCH_STASH_LIMIT", 10))
-        self.gitDir = exec_cmd(["git", "rev-parse", "--git-dir"])
-        self.currentBranchName = \
+        self.git_dir = exec_cmd(["git", "rev-parse", "--git-dir"])
+        self.current_branch_name = \
             exec_cmd(["git", "rev-parse", "--abbrev-ref", "HEAD"])
 
     def save_file(self, data: list):
-        with open(f"{self.gitDir}/info/{saveFilename}", "w") as f:
+        with open(f"{self.git_dir}/info/{saveFilename}", "w") as f:
             json.dump(data, f, ensure_ascii=False)
 
     def open_file(self) -> list:
         try:
-            with open(f"{self.gitDir}/info/{saveFilename}", "r") as f:
+            with open(f"{self.git_dir}/info/{saveFilename}", "r") as f:
                 return json.load(f)
         except OSError:
             return []
@@ -39,9 +39,9 @@ class BranchNameStash:
 
     def stash_branch_name(self):
         branch_names = self.open_file()
-        branch_names.insert(0, self.currentBranchName)
+        branch_names.insert(0, self.current_branch_name)
         self.save_file(branch_names[:self.limit])
-        print(f"Branch name '{self.currentBranchName}' has been stashed")
+        print(f"Branch name '{self.current_branch_name}' has been stashed")
 
     def show_stash(self):
         branch_names = self.open_file()
@@ -81,9 +81,9 @@ class BranchNameStash:
         }
 
         try:
-            command[self.commandName]()
+            command[self.command_name]()
         except KeyError:
-            print(f"Command {self.commandName} does not exist", file=sys.stderr)
+            print(f"Command {self.command_name} does not exist", file=sys.stderr)
 
 
 BranchNameStash().process_command()
