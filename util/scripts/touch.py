@@ -31,4 +31,5 @@ def process_touch():
     os.chmod(file_name, 0o755)
 
 
-process_touch()
+if __name__ == "__main__":
+    process_touch()

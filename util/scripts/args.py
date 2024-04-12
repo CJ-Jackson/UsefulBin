@@ -7,4 +7,5 @@ def process_args():
         print(arg.strip())
 
 
-process_args()
+if __name__ == "__main__":
+    process_args()

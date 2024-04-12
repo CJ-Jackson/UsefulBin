@@ -42,4 +42,5 @@ def process_env_man():
         print(f'export PATH="{all_path}:$PATH"')
 
 
-process_env_man()
+if __name__ == "__main__":
+    process_env_man()

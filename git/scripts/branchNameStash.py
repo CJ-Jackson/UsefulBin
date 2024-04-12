@@ -86,4 +86,5 @@ class BranchNameStash:
             print(f"Command {self.command_name} does not exist", file=sys.stderr)
 
 
-BranchNameStash().process_command()
+if __name__ == "__main__":
+    BranchNameStash().process_command()

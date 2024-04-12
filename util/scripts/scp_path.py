@@ -55,4 +55,5 @@ def process():
             print_scp_path()
 
 
-process()
+if __name__ == "__main__":
+    process()

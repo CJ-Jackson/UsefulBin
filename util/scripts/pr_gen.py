@@ -161,5 +161,6 @@ def process():
         case "pr_gen_create_pr":
             create_pr()
         
-        
-process()
+
+if __name__ == "__main__":
+    process()

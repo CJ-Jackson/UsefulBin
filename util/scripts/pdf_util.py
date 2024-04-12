@@ -68,4 +68,5 @@ def pdf_util_process():
             pdf_util_encrypt_pdf()
 
 
-pdf_util_process()
+if __name__ == "__main__":
+    pdf_util_process()
