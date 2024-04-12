@@ -66,8 +66,8 @@ def create_template():
 def open_pr_config() -> dict:
     try:
         tmp_path: str = sys.argv[1]
-        with open(tmp_path, "r", encoding="utf-8") as f:
-            return tomllib.loads(f.read())
+        with open(tmp_path, "rb") as f:
+            return tomllib.load(f)
     except (OSError, KeyError):
         print("Unabled to process P.R. config", file=sys.stderr)
         exit(1)

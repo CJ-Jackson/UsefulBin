@@ -10,8 +10,8 @@ def env_man_config_path() -> str:
 
 def open_env_man_config() -> dict:
     try:
-        with open(env_man_config_path(), "r", encoding="utf-8") as f:
-            return tomllib.loads(f.read())
+        with open(env_man_config_path(), "rb") as f:
+            return tomllib.load(f)
     except (OSError, tomllib.TOMLDecodeError):
         print(f"Unabled to open '{env_man_config_path()}'", file=sys.stderr)
         exit(1)
