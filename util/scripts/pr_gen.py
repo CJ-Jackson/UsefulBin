@@ -92,7 +92,7 @@ def create_pr():
     pr_config = open_pr_config()
     gl_config = open_pr_gen_config_file()
     max_lenght = MaxLenght()
-    header_list: list[dict] = [{"key": "**Q**", "value": "**A**"}]
+    header_list: list[dict[str, str | bool]] = [{"key": "**Q**", "value": "**A**"}]
     body_list: list[dict[str, str]] = []
     body: str = ""
     
