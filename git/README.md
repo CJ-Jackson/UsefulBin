@@ -3,6 +3,7 @@
 | Script           | Command or Description                                                         |
 |:-----------------|:-------------------------------------------------------------------------------|
 | --git-add        | `git add $@` or `git add -A` (If param is empty)                               |
+| --git-add-commit | `--git-add && --git-commit`                                                    |
 | --git-b-stash    | Add currnet branch name to top of file `.git/info/bNameStash`                  |
 | --git-b-stash-a  | Apply branch name from top of file `.git/info/bNameStash` or by pos param `$1` |
 | --git-b-stash-c  | Clear branch name stash by removing `.git/info/bNameStash`                     |
@@ -22,3 +23,4 @@
 | --git-stash-c    | `git stash clear`                                                              |
 | --git-sub-pull   | `git submodule update --init --recursive`                                      |
 | --git-sub-update | `git submodule update --remote --merge`                                        |
+| --git-unstaged   | `git restore --staged $@`                                                      |
