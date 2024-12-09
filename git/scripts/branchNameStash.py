@@ -77,7 +77,7 @@ class BranchNameStash:
             "--git-b-stash": self.stash_branch_name,
             "--git-b-stash-s": self.show_stash,
             "--git-b-stash-a": self.apply_stash,
-            "--git-b-Stash-c": self.clear_stash
+            "--git-b-stash-c": self.clear_stash
         }
 
         try:
