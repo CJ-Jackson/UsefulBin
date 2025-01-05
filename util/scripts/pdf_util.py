@@ -1,4 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --quiet --script
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#   "pypdf>=5.1.0"
+# ]
+# ///
 import getpass
 import os.path
 import sys
