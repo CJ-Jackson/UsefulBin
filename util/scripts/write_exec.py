@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import pathlib
 import subprocess
 import time
@@ -11,3 +12,5 @@ script_path.chmod(0o700)
 
 subprocess.run(["nvim", script_name])
 subprocess.run([script_name])
+
+os.remove(script_name)
