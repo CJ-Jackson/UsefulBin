@@ -144,11 +144,11 @@ def create_pr():
         body += f"| {key_: <{key_lenght}} | {value_: <{value_lenght}} |\n"
         
     body += '''
-    ## 📝 Description
+## 📝 Description
 
-    ## ✅ How to Test
+## ✅ How to Test
 
-    ## 🔍 QA'''
+## 🔍 QA'''
             
     print(body)
             
